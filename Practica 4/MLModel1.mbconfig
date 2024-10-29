@@ -1,0 +1,392 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\dotel\\Downloads\\Exito-academico-practica4.csv",
+    "Delimiter": ";",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "ID_Estudiante",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Edad",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Horas_Estudio_Semana",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ranking_Acad�mico",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Horas_Sue�o",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Nivel_Estr�s",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "�xito_Acad�mico",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.553528971028971,
+        "RuntimeInSeconds": 0.709,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "�xito_Acad�mico",
+            "InputColumnName": "�xito_Acad�mico",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e3": {
+            "NumberOfLeaves": 13,
+            "MinimumExampleCountPerLeaf": 13,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 396,
+            "FeatureFraction": 0.91826385910759423,
+            "LearningRate": 0.013578964520802114,
+            "LabelColumnName": "�xito_Acad�mico",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionOva",
+        "Score": 0.55011516261516269,
+        "RuntimeInSeconds": 0.341,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e6 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "�xito_Acad�mico",
+            "InputColumnName": "�xito_Acad�mico",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e6": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "�xito_Acad�mico",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestOva",
+        "Score": 0.52945831945831945,
+        "RuntimeInSeconds": 0.77,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "�xito_Acad�mico",
+            "InputColumnName": "�xito_Acad�mico",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfTrees": 9,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "�xito_Acad�mico",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestOva",
+        "Score": 0.52945831945831945,
+        "RuntimeInSeconds": 0.76,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "�xito_Acad�mico",
+            "InputColumnName": "�xito_Acad�mico",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfTrees": 9,
+            "NumberOfLeaves": 10,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "�xito_Acad�mico",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestOva",
+        "Score": 0.5189338439338439,
+        "RuntimeInSeconds": 0.791,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "ID_Estudiante",
+              "Edad",
+              "Horas_Estudio_Semana",
+              "Ranking_Acad�mico",
+              "Horas_Sue�o",
+              "Nivel_Estr�s"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "�xito_Acad�mico",
+            "InputColumnName": "�xito_Acad�mico",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "�xito_Acad�mico",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ReplaceMissingValues",
+      "e1": "Concatenate",
+      "e2": "MapValueToKey",
+      "e3": "FastTreeOva",
+      "e4": "FastForestOva",
+      "e5": "LightGbmMulti",
+      "e6": "LbfgsLogisticRegressionOva",
+      "e7": "LbfgsMaximumEntropyMulti",
+      "e8": "SdcaMaximumEntropyMulti",
+      "e9": "SdcaLogisticRegressionOva",
+      "e10": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7 + e8 + e9) * e10",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "C:\\Users\\dotel\\OneDrive - Instituto Tecnológico de Las Américas (ITLA)\\Cuatrimestres\\6toCuatri\\Mirenia de Datos\\Practica 4\\Practica 4\\MLModel1.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 30,
+    "LabelColumn": "�xito_Acad�mico",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
